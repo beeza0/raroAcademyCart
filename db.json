@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Celular VTX-900",
+      "picture": "https://somos.lojaiplace.com.br/wp-content/uploads/2021/04/apple_iphone-12-spring21_purple_04202021.jpg",
+      "quantity": 3,
+      "price": 2299.99
+    },
+    {
+      "id": 2,
+      "name": "Bola de futebol profissional",
+      "picture": "https://cambuci.vteximg.com.br/arquivos/ids/458600/bola-bravo-521298-1340-1.jpg?v=637819399426300000.jpg",
+      "quantity": 30,
+      "price": 39.99
+    },
+    {
+      "id": 3,
+      "name": "Chinelo amarelo marca-texto",
+      "picture": "https://d87n9o45kphpy.cloudfront.net/Custom/Content/Products/25/97/2597960_chinelo-havaianas-slim-glitter-neon-verde-5172048_s2_637783831021404031.jpg",
+      "quantity": 12,
+      "price": 59.99
+    },
+    {
+      "id": 4,
+      "name": "Bóia espaguete",
+      "picture": "https://http2.mlstatic.com/D_NQ_NP_759601-MLB45759282060_042021-O.webp.jpg",
+      "quantity": 150,
+      "price": 9.99
+    }
+  ]
+}
