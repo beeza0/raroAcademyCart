@@ -1,7 +1,7 @@
 import create from "zustand"
 import { ProductProps } from "../components/Product"
 
-export interface ICartItem extends ProductProps {
+interface ICartItem extends ProductProps {
   quantity: number
 }
 
@@ -11,7 +11,7 @@ interface ICartContext {
   setCartList: (item: ICartItem) => void
 }
 
-const searchItem = (list: ICartItem[], id: number): number => {
+export const searchItem = (list: ICartItem[], id: number): number => {
   let indexOf = -1
   list.forEach((element, index) => {
     if(element.id === id) indexOf = index 

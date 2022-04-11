@@ -9,14 +9,14 @@
     },
     {
       "id": 2,
-      "name": "Bola de futebol profissional",
+      "name": "Bola de futebol",
       "picture": "https://cambuci.vteximg.com.br/arquivos/ids/458600/bola-bravo-521298-1340-1.jpg?v=637819399426300000.jpg",
       "storage": 30,
       "price": 39.99
     },
     {
       "id": 3,
-      "name": "Chinelo amarelo marca-texto",
+      "name": "Chinelo amarelo",
       "picture": "https://d87n9o45kphpy.cloudfront.net/Custom/Content/Products/25/97/2597960_chinelo-havaianas-slim-glitter-neon-verde-5172048_s2_637783831021404031.jpg",
       "storage": 12,
       "price": 59.99

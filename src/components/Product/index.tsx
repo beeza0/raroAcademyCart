@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Incrementor from "../Incrementor"
 import { Wrapper, Info, Column, Text, WrapperIncrementor, WrapperImg } from "./styles"
 import useCartContext from "../../context/cart";
+import { priceFormat } from "../../utils/priceFormat";
 
 export type ProductProps = {
   id: number;
@@ -9,13 +10,18 @@ export type ProductProps = {
   price: number;
   picture: string;
   storage: number;
+  initialQuantity: number
 };
 
 const Product = (props: ProductProps) => {
   
-  const { name, price, picture, storage } = props
-  const [quantity, setQuantity] = useState<number>(0)
+  const { name, price, picture, storage, initialQuantity } = props
+  const [quantity, setQuantity] = useState<number>(initialQuantity)
   const changeCartlist = useCartContext(state => state.setCartList)
+
+  useEffect(() => {
+    setQuantity(initialQuantity)
+  }, [initialQuantity])
 
   const changeQuantity = (isAdded: boolean) : void => {
     if((isAdded && quantity !== storage) || (!isAdded && quantity !== 0)) {
@@ -31,7 +37,7 @@ const Product = (props: ProductProps) => {
       <Info>
         <Column>
           <Text>{name}</Text>
-          <Text>{`R$${price.toString().split('.').join(',')}`}</Text> {/*casa de milhar tem que ser com ponto*/}
+          <Text>{priceFormat.format(price)}</Text>
         </Column>
         <WrapperIncrementor>
           <Incrementor quantity={quantity} changeQuantity={changeQuantity} />
