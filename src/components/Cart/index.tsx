@@ -21,7 +21,7 @@ const MenuPayment = ({ isOpen, setIsOpen }: MenuPaymentProps) => {
 
   const renderCartItems = () => 
     cartList.map(item => {
-      return <Product {...item} initialQuantity={item.quantity} />
+      return <Product {...item} initialQuantity={item.quantity} key={item.id}/>
     })  
     
     const calcTotalPrice = () : number => {

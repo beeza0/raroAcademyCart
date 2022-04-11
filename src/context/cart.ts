@@ -34,7 +34,10 @@ const useCartContext = create<ICartContext>((set) => ({
      } 
     }
     else {
-      cartList.push(item)
+      const aux = cartList
+      aux.push(item)
+      set(({ cartList }) => ({ cartList: aux }))
+      // cartList.push(item)
       set(({ reload }) => ({ reload: !reload }))
     }
   })

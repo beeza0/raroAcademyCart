@@ -24,7 +24,7 @@ const Home = () => {
   const renderProducts = () => 
     products.map((product) => {
       const index = searchItem(cartList, product.id)
-      return <Product {...product} initialQuantity={index >=0 ? cartList[index].quantity : 0} />
+      return <Product {...product} initialQuantity={index >=0 ? cartList[index].quantity : 0} key={product.id}/>
     })
 
 

@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 import { ShoppingBagOutline as ShoppingIcon } from "styled-icons/evaicons-outline";
 import useCartContext from "../../context/cart";
 
-import { Wrapper } from "./styles";
+import { Wrapper, ShoppingContainer, CartQuantityIcon } from "./styles";
 
 type HeaderProps = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -14,19 +14,21 @@ const Header = ({ setIsOpen }: HeaderProps) => {
   const reload = useCartContext(state => state.reload)
 
   const quantityOnCart = (): number => {
-    let numberOfItems = 0
-    cartList.forEach(item => {
-      numberOfItems = numberOfItems + item.quantity
-    })
-    return numberOfItems
+    const initialValue = 0
+    return cartList.reduce((previousValue, item) => 
+      previousValue + item.quantity, initialValue
+    )
   }
 
   return (
     <Wrapper>
-      <ShoppingIcon onClick={() => setIsOpen(true)} aria-label="Shopping Icon" />
-      {cartList.length > 0 &&
-        <div style={{backgroundColor: 'red', color: 'white'}}>{quantityOnCart()}</div>
-      }
+      {/* <button onClick={() => {console.log(cartList)}}>PRINT</button> */}
+      <ShoppingContainer onClick={() => setIsOpen(true)} >
+        <ShoppingIcon aria-label="Shopping Icon" />
+        {cartList.length > 0 &&
+          <CartQuantityIcon>{quantityOnCart()}</CartQuantityIcon>
+        }
+      </ShoppingContainer>
     </Wrapper>
   )
 }
