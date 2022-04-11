@@ -81,25 +81,3 @@ export const WrapperImg = styled.img`
     border-radius: ${theme.border.radius.other};
   `}
 `;
-
-export const WrapperButton = styled.button`
-  padding: 0.6em;
-  border-radius: 1em;
-  cursor: pointer;
-  border: solid;
-  border-width: 0.1rem;
-  ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
-    color: white;
-  `}
-  &:hover {
-        color: #ff6680;
-        background-color: white;
-    }
-`;
-
-export const WrapperSubcontainer = styled.div`
-  display: flex;
-  width: 30rem;
-  justify-content: space-between;
-`;

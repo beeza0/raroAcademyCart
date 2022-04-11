@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Incrementor from "../Incrementor"
-import { Wrapper, Info, Column, Text, WrapperIncrementor, WrapperImg, WrapperButton, WrapperSubcontainer } from "./styles"
+import { Wrapper, Info, Column, Text, WrapperIncrementor, WrapperImg } from "./styles"
 import useCartContext from "../../context/cart";
 
 export type ProductProps = {
@@ -15,9 +15,7 @@ const Product = (props: ProductProps) => {
   
   const { name, price, picture, storage } = props
   const [quantity, setQuantity] = useState<number>(0)
-
   const changeCartlist = useCartContext(state => state.setCartList)
-  const cartlist = useCartContext(state => state.cartList)
 
   const changeQuantity = (isAdded: boolean) : void => {
     if((isAdded && quantity !== storage) || (!isAdded && quantity !== 0)) {
@@ -31,17 +29,13 @@ const Product = (props: ProductProps) => {
     <Wrapper>
       <WrapperImg src={picture} alt={`Imagem de referência ${name}`} />
       <Info>
-        {console.log(cartlist)}
         <Column>
           <Text>{name}</Text>
           <Text>{`R$${price.toString().split('.').join(',')}`}</Text> {/*casa de milhar tem que ser com ponto*/}
         </Column>
-        <WrapperSubcontainer>
-          <WrapperIncrementor>
-            <Incrementor quantity={quantity} changeQuantity={changeQuantity} />
-          </WrapperIncrementor>
-          <WrapperButton>Adicionar ao carrinho</WrapperButton> {/*tirar botão*/}
-        </WrapperSubcontainer>
+        <WrapperIncrementor>
+          <Incrementor quantity={quantity} changeQuantity={changeQuantity} />
+        </WrapperIncrementor>
       </Info>
     </Wrapper>
   )
