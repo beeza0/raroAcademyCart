@@ -11,18 +11,23 @@ interface ICartContext {
   setCartList: (item: ICartItem) => void
 }
 
+const searchItem = (list: ICartItem[], id: number): number => {
+  let indexOf = -1
+  list.forEach((element, index) => {
+    if(element.id === id) indexOf = index 
+  })
+  return indexOf
+} 
+
 const useCartContext = create<ICartContext>((set) => ({
   reload: false,
   cartList: [],
   setCartList: (item: ICartItem) => set(({ cartList }) => {
-    if(cartList.filter(element => element.id === item.id).length > 0) {
+    const index = searchItem(cartList, item.id)
+    if(index >= 0) {
       if(item.quantity > 0) {
-        cartList.forEach((product, index) => {
-          if(product.id === item.id) {
-            cartList.splice(index, 1, item)
-            set(({ reload }) => ({ reload: !reload }))
-          }
-        })
+        cartList.splice(index, 1, item)
+        set(({ reload }) => ({ reload: !reload }))
      }
      else {
         set(({ cartList }) => ({ cartList: cartList.filter(product => product.id !== item.id) }))

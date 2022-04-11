@@ -23,6 +23,7 @@ const Header = ({ setIsOpen }: HeaderProps) => {
 
   return (
     <Wrapper>
+      <button onClick={()=>console.log(cartList)}>PRINT</button>
       <ShoppingIcon onClick={() => setIsOpen(true)} aria-label="Shopping Icon" />
       {cartList.length > 0 &&
         <div style={{backgroundColor: 'red', color: 'white'}}>{quantityOnCart()}</div>
