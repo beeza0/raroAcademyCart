@@ -22,7 +22,6 @@ const Header = ({ setIsOpen }: HeaderProps) => {
 
   return (
     <Wrapper>
-      {/* <button onClick={() => {console.log(cartList)}}>PRINT</button> */}
       <ShoppingContainer onClick={() => setIsOpen(true)} >
         <ShoppingIcon aria-label="Shopping Icon" />
         {cartList.length > 0 &&
