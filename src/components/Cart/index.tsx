@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline";
 
 import Button from "../Button";
