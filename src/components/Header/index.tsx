@@ -24,9 +24,7 @@ const Header = ({ setIsOpen }: HeaderProps) => {
     <Wrapper>
       <ShoppingContainer onClick={() => setIsOpen(true)} >
         <ShoppingIcon aria-label="Shopping Icon" />
-        {cartList.length > 0 &&
           <CartQuantityIcon>{quantityOnCart()}</CartQuantityIcon>
-        }
       </ShoppingContainer>
     </Wrapper>
   )

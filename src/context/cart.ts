@@ -6,7 +6,7 @@ interface ICartItem extends ProductProps {
 }
 
 interface ICartContext {
-  reload: boolean
+  reload: boolean,
   cartList: ICartItem[],
   setCartList: (item: ICartItem) => void
 }
@@ -22,20 +22,20 @@ export const searchItem = (list: ICartItem[], id: number): number => {
 const useCartContext = create<ICartContext>((set) => ({
   reload: false,
   cartList: [],
-  setCartList: (item: ICartItem) => set(({ cartList }) => {
+  setCartList: (item: ICartItem) => set(({ cartList, reload }) => {
     const index = searchItem(cartList, item.id)
     if(index >= 0) {
       if(item.quantity > 0) {
         cartList.splice(index, 1, item)
-        set(({ reload }) => ({ reload: !reload }))
+        return {cartList, reload: !reload}
      }
      else {
-        set(({ cartList }) => ({ cartList: cartList.filter(product => product.id !== item.id) }))
+       return { cartList: cartList.filter(product => product.id !== item.id), reload: !reload}
      } 
     }
     else {
       cartList.push(item)
-      set(({ reload }) => ({ reload: !reload }))
+      return {cartList, reload: !reload}
     }
   })
 }))

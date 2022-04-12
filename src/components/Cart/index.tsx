@@ -17,7 +17,6 @@ export type MenuPaymentProps = {
 const MenuPayment = ({ isOpen, setIsOpen }: MenuPaymentProps) => {
 
   const cartList = useCartContext(state => state.cartList)
-  const reload = useCartContext(state => state.reload)
 
   const renderCartItems = () => 
     cartList.map(item => {
@@ -39,7 +38,7 @@ const MenuPayment = ({ isOpen, setIsOpen }: MenuPaymentProps) => {
         <Typography level={5} size="large" fontWeight={600}>
           {renderCartItems()}
         </Typography>
-        <CloseOutline onClick={() => setIsOpen(false)} />
+        <CloseOutline onClick={() => setIsOpen(false) } />
       </Header>
 
       <Subtotal>

@@ -38,6 +38,7 @@ const Product = (props: ProductProps) => {
         <Column>
           <Text>{name}</Text>
           <Text>{priceFormat.format(price)}</Text>
+          <Text>Quantidade no estoque: {storage}</Text>
         </Column>
         <WrapperIncrementor>
           <Incrementor quantity={quantity} changeQuantity={changeQuantity} />
